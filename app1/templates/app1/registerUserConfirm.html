@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>登録確認</title></head>
+<body>
+    <h1>以下の内容でよろしいですか？</h1>
+    <table border="1">
+        <tr><td>会員ID:</td><td>{{ form.user_id }}</td></tr>
+        <tr><td>お名前:</td><td>{{ form.name }}</td></tr>
+        <tr><td>ご住所:</td><td>{{ form.address }}</td></tr>
+    </table>
+    <br>
+    <form action="{% url 'app1:registerUserCommit' %}" method="POST" style="display:inline">
+        {% csrf_token %}
+        <input type="submit" value="登録する"/>
+    </form>
+
+    <form action="{% url 'app1:registerUser' %}" method="GET" style="display:inline">
+        <input type="submit" value="戻る"/>
+    </form>
+</body>
+</html>
