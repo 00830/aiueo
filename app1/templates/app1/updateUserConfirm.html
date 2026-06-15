@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>更新確認</title><link rel="stylesheet" href="{% static 'app1/style.css' %}"></head>
+<body>
+    <h1>以下の会員情報で更新しますか？</h1>
+
+    <form action="{% url 'app1:updateUserCommit' %}" method="POST">
+        {% csrf_token %}
+        <table border="1">
+            <tr><td>会員ID:</td><td>{{ user_id }}</td></tr>
+            <tr><td>パスワード:</td><td><input type="password" value="{{ password }}" readonly></td></tr>
+            <tr><td>お名前:</td><td>{{ name }}</td></tr>
+            <tr><td>ご住所:</td><td>{{ address }}</td></tr>
+            <tr>
+                <td colspan="2" style="text-align:center">
+                    <input type="submit" value="変更">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <a href="{% url 'app1:main' %}">商品検索へ</a>
+</body>
+</html>

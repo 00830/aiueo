@@ -3,7 +3,7 @@ from django import forms
 class RegisterUserForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.label_suffix=""
+        self.label_suffix = ""
 
     user_id = forms.CharField(label="会員ID:", max_length=128)
     password = forms.CharField(label="パスワード:", max_length=256)

@@ -1,9 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8"><title>ログイン</title></head>
+<head><meta charset="utf-8"><title>ログイン</title><link rel="stylesheet" href="{% static 'app1/style.css' %}"></head>
 <body>
     <h1>ログインしてください。</h1>
 
+    {% if error %}<p style="color:red">{{ error }}</p>{% endif %}
 
     <form action="{% url 'app1:login' %}" method="POST">
         {% csrf_token %}

@@ -1,0 +1,84 @@
+
+
+html {
+    background-color: #eef6fb;            
+}
+
+body {
+    font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+    color: #45525e;
+    max-width: 640px;
+    margin: 30px auto;
+    background-color: #ffffff;
+    padding: 28px 40px;
+    border-radius: 18px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    line-height: 1.8;
+}
+
+h1 {
+    font-size: 1.5rem;
+    color: #2e8bc0;                      
+    border-bottom: 2px dashed #b3dcf0;
+    padding-bottom: 8px;
+}
+
+h2 {
+    font-size: 1.1rem;
+    color: #9a9a9a;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 16px 0;
+}
+
+th, td {
+    border: 1px solid #d8eaf4;
+    padding: 10px 14px;
+    text-align: left;
+}
+
+th {
+    background-color: #e6f3fb;
+    color: #2e8bc0;
+}
+
+td:first-child {
+    background-color: #f1f8fc;          
+    width: 34%;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+    padding: 6px 10px;
+    border: 1px solid #bfdcec;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+input[type="submit"] {
+    background-color: #4aa8df;           
+    color: #ffffff;
+    border: none;
+    padding: 9px 24px;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+input[type="submit"]:hover {
+    background-color: #3a96cd;
+}
+
+a {
+    color: #2e8bc0;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

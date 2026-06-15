@@ -1,8 +1,9 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
-<head><title>会員登録の完了</title></head>
+<head><meta charset="utf-8"><title>会員登録の完了</title><link rel="stylesheet" href="{% static 'app1/style.css' %}"></head>
 <body>
     <h1>{{ name }}さんの会員登録が完了しました。</h1>
-    <a href="{% url 'app1:search' %}">商品検索へ</a>
+    <a href="{% url 'app1:main' %}">商品検索へ</a>
 </body>
 </html>
