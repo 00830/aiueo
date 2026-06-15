@@ -1,11 +1,33 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8"><title>商品検索</title></head>
+<head><meta charset="utf-8"><title>商品検索</title><link rel="stylesheet" href="{% static 'app1/style.css' %}"></head>
 <body>
-    <h1>商品の検索を行います。</h1><br>
-    カテゴリ:キーワード:<br>
+    <h1>商品の検索を行います。</h1>
 
-    <!-- <a href="{% url 'app1:cart' %}">ショッピングカートを見る</a><br> -->
-    <a href="{% url 'app1:login' %}">ログイン</a><br>
+    <form action="{% url 'app1:searchResult' %}" method="get">
+        カテゴリ:
+        <select name="category">
+            <option value="all">すべて</option>
+            <option value="2">帽子</option>
+            <option value="1">鞄</option>
+        </select>
+        キーワード:<input type="text" name="keyword">
+        <input type="submit" value="検索">
+    </form>
+    <br>
+
+    {% if user %}
+        <a href="{% url 'app1:cart' %}">ショッピングカートを見る</a><br>
+        <br>
+        ようこそ{{ user.name }}さん<br>
+        <a href="{% url 'app1:userInfo' %}">会員情報の確認</a><br>
+        <a href="{% url 'app1:updateUser' %}">会員情報の変更</a><br>
+        <a href="{% url 'app1:logout' %}">ログアウト</a><br>
+    {% else %}
+        <a href="{% url 'app1:cart' %}">ショッピングカートを見る</a><br>
+        <a href="{% url 'app1:login' %}">ログイン</a><br>
+    {% endif %}
+
 </body>
 </html>

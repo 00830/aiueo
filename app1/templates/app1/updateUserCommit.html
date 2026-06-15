@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>会員情報の更新完了</title><link rel="stylesheet" href="{% static 'app1/style.css' %}"></head>
+<body>
+    <h1>以下の会員情報で更新しました。</h1>
+
+    <table border="1">
+        <tr><td>会員ID</td><td>{{ user.user_id }}</td></tr>
+        <tr><td>パスワード</td><td>表示なし</td></tr>
+        <tr><td>お名前</td><td>{{ user.name }}</td></tr>
+        <tr><td>ご住所</td><td>{{ user.address }}</td></tr>
+    </table>
+    <a href="{% url 'app1:main' %}">商品検索へ</a>
+</body>
+</html>

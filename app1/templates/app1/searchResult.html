@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>検索結果</title><link rel="stylesheet" href="{% static 'app1/style.css' %}"></head>
+<body>
+    <h1>キーワード「{{ keyword }}」 カテゴリ「{{ category_name }}」の検索結果</h1>
+
+    <table border="1">
+        <tr>
+            <th>商品名</th>
+            <th>メーカー</th>
+            <th>色</th>
+            <th>価格</th>
+            <th>在庫</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td><a href="{% url 'app1:itemDetail' product.item_id %}">{{ product.name }}</a></td>
+            <td>{{ product.manufacturer }}</td>
+            <td>{{ product.color }}</td>
+            <td>{{ product.price }}円</td>
+            <td>{{ product.stock }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="5">該当する商品がありません。</td></tr>
+        {% endfor %}
+    </table>
+    <br>
+
+    <a href="{% url 'app1:main' %}">商品検索へ</a>
+</body>
+</html>

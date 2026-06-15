@@ -1,33 +1,46 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
-    <h1>会員情報</h1><br>
-    <table border="1">
-        <tr>
-            <td>会員ID:</td>
-            <td><input></td>
-        </tr>
-        <tr>
-            <td>パスワード:</td>
-            <td><input></td>
-        </tr>
-        <tr>
-            <td>パスワード(確認):</td>
-            <td><input></td>
-        </tr>
-        <tr>
-            <td>お名前:</td>
-            <td><input></td>
-        </tr>
-        <tr>
-            <td>ご住所:</td>
-            <td><input></td>
-        </tr>
-        <tr>
-            <td colspan="3">変更</td>
-        </tr>
-    </table><br>
-    <a href="">退会確認画面</a><br><br>
-    <a href="">商品検索へ</a>
-    </body>
-</html>
+<head><meta charset="utf-8"><title>会員情報</title><link rel="stylesheet" href="{% static 'app1/style.css' %}"></head>
+<body>
+    <h1>会員情報</h1>
+
+    {% if error %}<p style="color:red">{{ error }}</p>{% endif %}
+
+    <form action="{% url 'app1:updateUserConfirm' %}" method="POST">
+        {% csrf_token %}
+        <table border="1">
+            <tr>
+                <td>会員ID:</td>
+                <td>{{ user.user_id }}</td>
+            </tr>
+            <tr>
+                <td>パスワード:</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td>パスワード(確認):</td>
+                <td><input type="password" name="checkpassword"></td>
+            </tr>
+            <tr>
+                <td>お名前:</td>
+                <td><input type="text" name="name" value="{{ user.name }}"></td>
+            </tr>
+            <tr>
+                <td>ご住所:</td>
+                <td><input type="text" name="address" value="{{ user.address }}"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center">
+                    <input type="submit" value="変更">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <a href="{% url 'app1:withdrawConfirm' %}">退会する</a><br>
+    <br><br>
+    <a href="#">購入履歴へ</a><br>
+    <a href="{% url 'app1:main' %}">商品検索へ</a>
+</body>
 </html>
